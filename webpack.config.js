@@ -1,6 +1,6 @@
 
 module.exports = {
-    entry: "./entry.jsx", // 要打包的入口文件
+    entry: "./main.js", // 要打包的入口文件
     output: {               //打包后的文件
         path: __dirname,   //表示使用绝对路径
         filename: "bundle.js" //输出文件名
