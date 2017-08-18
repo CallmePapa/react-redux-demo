@@ -6,7 +6,7 @@ var mysql  = require('mysql');
 var express = require('express');
 var connection  =require('../connection.js');
 
-connection.connect();
+
 
 var  sql = 'SELECT * FROM edit';
 //查
