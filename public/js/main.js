@@ -14,7 +14,7 @@ class App extends React.Component{
     }
 
     render(){
-        const {actions,text}=this.props;
+        const {actions}=this.props;
         return(
             <div>
                 <Hello action={actions} test={test}/>

@@ -3,6 +3,8 @@
  */
 
 import React from "react";
+import changeText from '../components/action.js';
+import buttonClick from '../components/action.js';
 
 const initialState ={
     text:"hello"
