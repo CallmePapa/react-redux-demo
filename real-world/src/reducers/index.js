@@ -1,7 +1,7 @@
 import * as ActionTypes from '../actions';
 import merge from 'lodash/merge';
 import paginate from './paginate';
-import {combinRedeucers} from 'redux';
+import {combineReducers} from 'redux';
 
 const entities = (state = {users: {}, repo: {}}, action) => {
     if (action.response & action.response.entities) {
@@ -21,7 +21,7 @@ const errorMessage = (state = null, action) => {
     return state;
 };
 
-const pagination = combinRedeucers({
+const pagination = combineReducers({
     starredByUser: paginate({
         mapActionToKey: action => action.login,
         types: [
@@ -32,10 +32,11 @@ const pagination = combinRedeucers({
     })
 });
 
-const rootReducer = combinRedeucers({
+const rootReducer = combineReducers({
     entities,
     pagination,
     errorMessage,
 });
 
 export default rootReducer;
+

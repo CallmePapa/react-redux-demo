@@ -32,6 +32,6 @@ Repo.propTypes = {
     owner: PropTypes.shape({
         login: PropTypes.string.isRequired()
     }).isRequired
-};
+}
 
 export default Repo;
