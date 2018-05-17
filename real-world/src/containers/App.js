@@ -15,7 +15,7 @@ class App extends Component {
 
     handleDismissClick = e => {
         this.props.resetErrorMessage();
-        e.preventDefault();
+        e.preventDefault()
     };
 
     handleChange = nextValue => {
@@ -23,7 +23,7 @@ class App extends Component {
     };
 
     renderErrorMessage() {
-        const {errorMessage} = this.props;
+        const { errorMessage } = this.props;
         if (!errorMessage) {
             return null;
         }
@@ -33,7 +33,7 @@ class App extends Component {
 
                 <b>{errorMessage}</b>
                 {" "}
-                <button onClick={this.handleDismissClick()}>
+                <button onClick={this.handleDismissClick}>
                     Dismiss
                 </button>
             </p>

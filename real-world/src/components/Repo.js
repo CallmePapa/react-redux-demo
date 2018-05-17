@@ -30,7 +30,7 @@ Repo.propTypes = {
         description: PropTypes.string
     }).isRequired,
     owner: PropTypes.shape({
-        login: PropTypes.string.isRequired()
+        login: PropTypes.string.isRequired,
     }).isRequired
 }
 

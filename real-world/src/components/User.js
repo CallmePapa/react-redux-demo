@@ -12,7 +12,7 @@ const User = ({user}) => {
                 <h3>
                     {login}{name && <span>({name})</span>}
                 </h3>
-            </Link>>
+            </Link>
         </div>
     )
 };

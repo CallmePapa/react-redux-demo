@@ -9,7 +9,7 @@ export default class List extends Component {
         items: PropTypes.array.isRequired,
         isFetching: PropTypes.bool.isRequired,
         onLoadMoreClick: PropTypes.func.isRequired,
-        nexyPageUrl: PropTypes.string
+        nextPageUrl: PropTypes.string
     }
 
     static defaultProps = {

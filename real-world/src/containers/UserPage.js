@@ -52,7 +52,7 @@ class UserPage extends Component {
     render() {
         const { user, login } = this.props
         if (!user) {
-            return <h1><i>Loading {login}{"'s profile..."}</i></h1>
+            return <h1>Loading {login}{"'s profile..."}</h1>
         }
 
         const { starredRepos, starredRepoOwners, starredPagination } = this.props
@@ -71,10 +71,7 @@ class UserPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    // We need to lower case the login due to the way GitHub's API behaves.
-    // Have a look at ../middleware/api.js for more details.
     const login = ownProps.match.params.login.toLowerCase()
-
     const {
         pagination: { starredByUser },
         entities: { users, repos }

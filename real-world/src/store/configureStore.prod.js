@@ -1,9 +1,9 @@
-import {creatStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import api from '../middleware/api';
 import rootReducer from '../reducers';
 
-const configureStore = preloadedState => creatStore(
+const configureStore = preloadedState => createStore(
     rootReducer,
     preloadedState,
     applyMiddleware(thunk, api)

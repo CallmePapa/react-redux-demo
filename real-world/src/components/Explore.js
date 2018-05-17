@@ -25,23 +25,23 @@ export default class Explore extends Component {
 
     handleKeyUp = (e) => {
         if (e.keyCode === 13) {
-            this.handleGoClick();
+            this.handleGoClick()
         }
     };
 
     handleGoClick = () => {
-        this.props.onChange(this.getInputValue());
+        this.props.onChange(this.getInputValue())
     };
 
     render() {
         return (
             <div>
                 <p>please input you want to search repo name or github username</p>
-                <input type="text" value="input" size="45"
+                <input type="text" size="45"
                        ref={(input) => this.input = input}
                        defaultValue={this.props.value}
                        onKeyUp={this.handleKeyUp}/>
-                <button onClick={this.handleGoClick()}>
+                <button onClick={this.handleGoClick}>
                     Go!
                 </button>
                 <p>

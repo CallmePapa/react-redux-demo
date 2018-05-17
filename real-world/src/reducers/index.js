@@ -3,11 +3,12 @@ import merge from 'lodash/merge';
 import paginate from './paginate';
 import {combineReducers} from 'redux';
 
-const entities = (state = {users: {}, repo: {}}, action) => {
-    if (action.response & action.response.entities) {
-        return merge({}, state, action.response.entities);
+
+const entities = (state = {users: {}, repos: {}}, action) => {
+    if (action.response && action.response.entities) {
+        return merge({}, state, action.response.entities)
     }
-    return state;
+    return state
 };
 
 const errorMessage = (state = null, action) => {
@@ -28,6 +29,14 @@ const pagination = combineReducers({
             ActionTypes.STARRED_REQUEST,
             ActionTypes.STARRED_SUCCESS,
             ActionTypes.STARRED_FAILURE
+        ]
+    }),
+    stargazersByRepo:paginate({
+        mapActionToKey:action=>action.fullname,
+        types:[
+            ActionTypes.STARGAZERS_FAILURE,
+            ActionTypes.STARGAZERS_SUCCESS,
+            ActionTypes.STARGAZERS_FAILURE
         ]
     })
 });

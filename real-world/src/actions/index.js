@@ -14,7 +14,7 @@ const fetchUser = login => ({
 });
 
 export const loadUser = (login, requiredFields = []) => (dispatch, getState) => {
-    const user = getState().entities.users[login]
+    const user = getState().entities.users[login];
     if (user && requiredFields.every(key => user.hasOwnProperty(key))) {
         return null;
     }
@@ -22,9 +22,9 @@ export const loadUser = (login, requiredFields = []) => (dispatch, getState) => 
     return dispatch(fetchUser(login));
 };
 
-export const REPO_REQUEST = 'REPO_REQUEST'
-export const REPO_SUCCESS = 'REPO_SUCCESS'
-export const REPO_FAILURE = 'REPO_FAILURE'
+export const REPO_REQUEST = 'REPO_REQUEST';
+export const REPO_SUCCESS = 'REPO_SUCCESS';
+export const REPO_FAILURE = 'REPO_FAILURE';
 
 const fetchRepo = fullName => ({
     [CALL_API]: {
@@ -41,11 +41,11 @@ export const loadRepo = (fullName, requiredFields = []) => (dispatch, getState) 
     }
 
     return dispatch(fetchRepo(fullName));
-}
+};
 
-export const STARRED_REQUEST = 'STARRED_REQUEST'
-export const STARRED_SUCCESS = 'STARRED_SUCCESS'
-export const STARRED_FAILURE = 'STARRED_FAILURE'
+export const STARRED_REQUEST = 'STARRED_REQUEST';
+export const STARRED_SUCCESS = 'STARRED_SUCCESS';
+export const STARRED_FAILURE = 'STARRED_FAILURE';
 
 const fetchStarred = (login, nextPageUrl) => ({
     login,
@@ -61,7 +61,7 @@ export const loadStarred = (login, nextPage) => (dispatch, getState) => {
     const {
         nextPageUrl = `users/${login}/starred`,
         pageCount = 0
-    } = getState().pagination.starredByUser[login] || {}
+    } = getState().pagination.starredByUser[login] || {};
 
     if (pageCount > 0 && !nextPage) {
         return null
@@ -70,9 +70,9 @@ export const loadStarred = (login, nextPage) => (dispatch, getState) => {
     return dispatch(fetchStarred(login, nextPageUrl))
 };
 
-export const STARGAZERS_REQUEST = 'STARGAZERS_REQUEST'
-export const STARGAZERS_SUCCESS = 'STARGAZERS_SUCCESS'
-export const STARGAZERS_FAILURE = 'STARGAZERS_FAILURE'
+export const STARGAZERS_REQUEST = 'STARGAZERS_REQUEST';
+export const STARGAZERS_SUCCESS = 'STARGAZERS_SUCCESS';
+export const STARGAZERS_FAILURE = 'STARGAZERS_FAILURE';
 
 
 const fetchStargazers = (fullName, nextPageUrl) => ({
@@ -89,7 +89,7 @@ export const loadStargazers = (fullName, nextPage) => (dispatch, getState) => {
     const {
         nextPageUrl = `repos/${fullName}/stargazers`,
         pageCount = 0
-    } = getState().pagination.stargazersByRepo[fullName] || {}
+    } = getState().pagination.stargazersByRepo[fullName] || {};
 
     if (pageCount > 0 && !nextPage) {
         return null
@@ -98,7 +98,7 @@ export const loadStargazers = (fullName, nextPage) => (dispatch, getState) => {
     return dispatch(fetchStargazers(fullName, nextPageUrl))
 };
 
-export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
+export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
 
 export const resetErrorMessage = () => ({
     type: RESET_ERROR_MESSAGE

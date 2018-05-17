@@ -8,7 +8,7 @@ const paginate = ({types, mapActionToKey}) => {
         throw new Error("Expected types to be strings");
     }
     if (typeof mapActionToKey !== 'function') {
-        throw new Error("Excepted mapActionToKey to be a function.");
+        throw new Error("Expected mapActionToKey to be a function.");
     }
 
     const [requestType, successType, failureType] = types;
@@ -24,24 +24,24 @@ const paginate = ({types, mapActionToKey}) => {
                 return {
                     ...state,
                     isFetching: true
-                }
+                };
             case successType:
                 return {
                     ...state,
                     isFetching: false,
                     ids: union(state.ids, action.response.result),
                     nextPageUrl: action.response.nextPageUrl,
-                    pageCount: state.pageCount++
-                }
+                    pageCount: state.pageCount+1
+                };
             case failureType:
                 return {
                     ...state,
                     isFetching: false
-                }
+                };
             default:
                 return state;
         }
-    }
+    };
 
     return (state = {}, action) => {
         switch (action.type) {
@@ -55,8 +55,8 @@ const paginate = ({types, mapActionToKey}) => {
 
                 return {
                     ...state,
-                    [key]:updatePagination(state[key],action)
-                }
+                    [key]: updatePagination(state[key], action)
+                };
             default:
                 return state
         }
