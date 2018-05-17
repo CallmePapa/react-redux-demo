@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -11,9 +10,9 @@ import List from '../components/List'
 import zip from 'lodash/zip'
 
 const loadData = ({ login, loadUser, loadStarred }) => {
-    loadUser(login, [ 'name' ])
+    loadUser(login, [ 'name' ]
     loadStarred(login)
-}
+};
 
 class UserPage extends Component {
     static propTypes = {
@@ -24,7 +23,7 @@ class UserPage extends Component {
         starredRepoOwners: PropTypes.array.isRequired,
         loadUser: PropTypes.func.isRequired,
         loadStarred: PropTypes.func.isRequired
-    }
+    };
 
     componentWillMount() {
         loadData(this.props)
@@ -38,7 +37,7 @@ class UserPage extends Component {
 
     handleLoadMoreClick = () => {
         this.props.loadStarred(this.props.login, true)
-    }
+    };
 
     renderRepo([ repo, owner ]) {
         return (
@@ -50,12 +49,12 @@ class UserPage extends Component {
     }
 
     render() {
-        const { user, login } = this.props
+        const { user, login } = this.props;
         if (!user) {
-            return <h1>Loading {login}{"'s profile..."}</h1>
+            return <h1><i>Loading {login}{"'s profile..."}</i></h1>
         }
 
-        const { starredRepos, starredRepoOwners, starredPagination } = this.props
+        const { starredRepos, starredRepoOwners, starredPagination } = this.props;
         return (
             <div>
                 <User user={user} />
@@ -71,15 +70,17 @@ class UserPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const login = ownProps.match.params.login.toLowerCase()
+
+    const login = ownProps.match.params.login.toLowerCase();
+
     const {
         pagination: { starredByUser },
         entities: { users, repos }
-    } = state
+    } = state;
 
-    const starredPagination = starredByUser[login] || { ids: [] }
-    const starredRepos = starredPagination.ids.map(id => repos[id])
-    const starredRepoOwners = starredRepos.map(repo => users[repo.owner])
+    const starredPagination = starredByUser[login] || { ids: [] };
+    const starredRepos = starredPagination.ids.map(id => repos[id]);
+    const starredRepoOwners = starredRepos.map(repo => users[repo.owner]);
 
     return {
         login,
@@ -88,7 +89,7 @@ const mapStateToProps = (state, ownProps) => {
         starredPagination,
         user: users[login]
     }
-}
+};
 
 export default withRouter(connect(mapStateToProps, {
     loadUser,

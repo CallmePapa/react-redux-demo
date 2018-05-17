@@ -23,7 +23,7 @@ class RepoPage extends Component {
         stargazersPagination: PropTypes.object,
         loadRepo: PropTypes.func.isRequired,
         loadStargazers: PropTypes.func.isRequired
-    }
+    };
 
     componentWillMount() {
         loadData(this.props)
