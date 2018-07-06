@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Explore from '../components/Explore';
 import {resetErrorMessage} from '../actions';
+import {Button} from 'antd'
 
 class App extends Component {
     static propTypes = {
@@ -30,12 +31,11 @@ class App extends Component {
 
         return (
             <p style={{backgroundColor: '#e99', padding: 10}}>
-
                 <b>{errorMessage}</b>
                 {" "}
-                <button onClick={this.handleDismissClick}>
+                <Button type='primary' onClick={this.handleDismissClick}>
                     Dismiss
-                </button>
+                </Button>
             </p>
         )
     }

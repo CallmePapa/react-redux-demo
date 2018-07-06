@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Button} from 'antd'
 
 export default class List extends Component {
     static propTypes = {
@@ -20,11 +21,12 @@ export default class List extends Component {
     renderLoadMore() {
         const {isFetching, onLoadMoreClick} = this.props;
         return (
-            <button style={{fontSize: '150%'}}
+            <Button style={{fontSize: '150%'}}
                     onClick={onLoadMoreClick}
-                    disabled={isFetching}>
+                    disabled={isFetching}
+            type='primary'>
                 {isFetching ? "Loading..." : "Load More"}
-            </button>
+            </Button>
         )
     }
 

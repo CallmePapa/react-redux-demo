@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
+import {Button} from'antd';
 
 const GITHUB_REPO = 'https://github.com/weiqiujuan';
 
@@ -41,9 +42,9 @@ export default class Explore extends Component {
                        ref={(input) => this.input = input}
                        defaultValue={this.props.value}
                        onKeyUp={this.handleKeyUp}/>
-                <button onClick={this.handleGoClick}>
+                <Button  type='primary' onClick={this.handleGoClick}>
                     Go!
-                </button>
+                </Button>
                 <p>
                     Code on <a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer"> GitHub </a>
                 </p>
