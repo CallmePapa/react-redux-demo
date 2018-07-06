@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 
-const GITHUB_REPO = 'https"//github.com/weiqiujuan';
+const GITHUB_REPO = 'https://github.com/weiqiujuan';
 
 export default class Explore extends Component {
     static propTypes = {
@@ -37,7 +37,7 @@ export default class Explore extends Component {
         return (
             <div>
                 <p>please input you want to search repo name or github username</p>
-                <input type="text" size="45"
+                <input size="45"
                        ref={(input) => this.input = input}
                        defaultValue={this.props.value}
                        onKeyUp={this.handleKeyUp}/>

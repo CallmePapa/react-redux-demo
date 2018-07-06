@@ -12,10 +12,10 @@ const Repo = ({repo, owner}) => {
                 <Link to={`/${login}/${name}`}>
                     {name}
                 </Link>
-                {'by'}
+                {' by '}
                 <Link to={`/${login}`}>
                     {login}
-                </Link>>
+                </Link>
             </h3>
             {
                 description && <p>{description}</p>
@@ -30,7 +30,7 @@ Repo.propTypes = {
         description: PropTypes.string
     }).isRequired,
     owner: PropTypes.shape({
-        login: PropTypes.string.isRequired,
+        login: PropTypes.string.isRequired
     }).isRequired
 }
 

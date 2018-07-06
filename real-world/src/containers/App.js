@@ -23,7 +23,7 @@ class App extends Component {
     };
 
     renderErrorMessage() {
-        const { errorMessage } = this.props;
+        const {errorMessage} = this.props;
         if (!errorMessage) {
             return null;
         }
@@ -54,6 +54,7 @@ class App extends Component {
         )
     }
 }
+
 const mapStateToProps = (state, ownProps) => ({
     errorMessage: state.errorMessage,
     inputValue: ownProps.location.pathname.substring(1)

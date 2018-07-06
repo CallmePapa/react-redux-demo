@@ -8,9 +8,9 @@ import User from '../components/User';
 import List from '../components/List';
 
 const loadData = props => {
-    const {fullname} = props;
-    props.loadRepo(fullname, ['deacription']);
-    props.loadStargazers(fullname);
+    const {fullName} = props;
+    props.loadRepo(fullName, ['description']);
+    props.loadStargazers(fullName);
 };
 
 class RepoPage extends Component {
@@ -36,7 +36,7 @@ class RepoPage extends Component {
     }
 
     handleLoadMoreClick = () => {
-        this.props.loadStargazers(this.props.fullname, true)
+        this.props.loadStargazers(this.props.fullName, true)
     };
 
     renderUser(user) {
@@ -75,16 +75,16 @@ const mapStateToProps = (state, ownProps) => {
         entities: {users, repos}
     } = state;
 
-    const fullname = `${login}/${name}`;
-    const stargazersPagination = stargazersByRepo[fullname];
+    const fullName = `${login}/${name}`;
+    const stargazersPagination = stargazersByRepo[fullName]||{ids:[]};
     const stargazers = stargazersPagination.ids.map(id => users[id])
 
     return {
-        fullname,
+        fullName,
         name,
         stargazers,
         stargazersPagination,
-        repo: repos[fullname],
+        repo: repos[fullName],
         owner: users[login]
     }
 };

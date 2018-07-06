@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 import api from '../middleware/api';
@@ -7,7 +7,8 @@ import DevTools from '../containers/DevTools'
 
 const configureStore = preloadedState => {
     const store = createStore(
-        rootReducer, preloadedState,
+        rootReducer,
+        preloadedState,
         compose(
             applyMiddleware(thunk, api, createLogger()),
             DevTools.instrument()
@@ -16,7 +17,7 @@ const configureStore = preloadedState => {
     if (module.hot) {
         module.hot.accept('../reducers', () => {
             store.replaceReducer(rootReducer);
-        });
+        })
     }
 
     return store;

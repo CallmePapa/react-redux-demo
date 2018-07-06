@@ -45,7 +45,7 @@ const userSchema = new schema.Entity('users', {}, {
 const repoSchema = new schema.Entity('repos', {
     owner: userSchema
 }, {
-    idAttribute: repo => repo.fullname.toLowerCase()
+    idAttribute: repo => repo.fullName.toLowerCase()
 });
 
 export const Schemas = {
@@ -103,6 +103,3 @@ export default store => next => action => {
         }))
     )
 }
-
-
-
